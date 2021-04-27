@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
-@CrossOrigin(origins = "https://mercadomr.github.io/Sproner-React/*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class SpronerController {
