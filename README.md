@@ -5,13 +5,13 @@ In the next table are described the Methods, URLs and their corresponding action
 
 | Method | URL | Action |
 | ------ | --- | ------ |
-| _POST_ | [x] **/api/song** | Create a new song |
-| _GET_ | [x] **/api/song** | Retrieve all songs |
-| _DELETE_ | [x] **/api/song** | Delete all songs |
-| _GET_ | [x] **/api/song/id:** | Retrieve a song by id |
-| _PUT_ | [x] **/api/song/id:** | Update a song by id |
-| _DELETE_ | [x] **/api/song/id:** | Delete a song by id |
-| _GET_ | [x] **/api/song?title=[keyword]** | Retrive a song containing **keyword** in its title |
+| _POST_ | - [x] **/api/song** | Create a new song |
+| _GET_ | - [x] **/api/song** | Retrieve all songs |
+| _DELETE_ | - [x] **/api/song** | Delete all songs |
+| _GET_ | - [x] **/api/song/id:** | Retrieve a song by id |
+| _PUT_ | - [x] **/api/song/id:** | Update a song by id |
+| _DELETE_ | - [x] **/api/song/id:** | Delete a song by id |
+| _GET_ | - [x] **/api/song?title=[keyword]** | Retrive a song containing **keyword** in its title |
 
 ## Setting the database
 
