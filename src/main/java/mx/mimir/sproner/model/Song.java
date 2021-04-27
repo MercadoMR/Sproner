@@ -21,7 +21,7 @@ https://www.baeldung.com/jpa-java-time
 */
 
 @Entity
-@Table(name="song", schema="music")
+@Table(name="song")
 @TypeDef(
     typeClass = YearMonthDateType.class,
     defaultForType = YearMonth.class
