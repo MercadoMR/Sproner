@@ -9,5 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SpronerRepository extends JpaRepository<Song,Long> {
     
     List<Song> findByTitleContaining(String title);
-
+    List<Song> findByTitleIgnoreCase(String title);
+    
 }
