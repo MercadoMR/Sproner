@@ -10,5 +10,6 @@ public interface SpronerRepository extends JpaRepository<Song,Long> {
     
     List<Song> findByTitleContaining(String title);
     List<Song> findByTitleIgnoreCase(String title);
-    
+    List<Song> findByTitleLikeIgnoreCase(String title);
+    List<Song> findByTitleContainingIgnoreCase(String title);
 }

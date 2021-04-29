@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.connector.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +24,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 
- *  mvn spring-boot:run
-    "%PSQL_ROOT%\bin\pg_ctl" -D "%PSQL_ROOT%\data" -l "%PSQL_ROOT%\log\run.log" start
-    "%PSQL_ROOT%\bin\psql" -U dba -W -d musiclibrary
+ * @CrossOrigin(origins = "https://mercadomr.github.io")
+ * @CrossOrigin(origins = "https://locahost:3000/")
  */
    
 
-
-
-
-@CrossOrigin(origins = "https://mercadomr.github.io")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class SpronerController {
@@ -52,8 +48,7 @@ public class SpronerController {
             if ( title == null){
                 sr.findAll().forEach(songs::add);
             }else{
-                //sr.findByTitleContaining(title).forEach(songs::add);
-                sr.findByTitleIgnoreCase(title).forEach(songs::add);
+                sr.findByTitleContainingIgnoreCase(title).forEach(songs::add);
             }
             if ( songs.isEmpty() ){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -82,7 +77,6 @@ public class SpronerController {
     @PutMapping(value = "/song/{id}")
     public ResponseEntity<Song> updateSong(@PathVariable("id") long id, @RequestBody Song song){
         Optional<Song> songData = sr.findById(id);
-
 		if (songData.isPresent()) {
 			Song _song = songData.get();
 			_song.setTitle(song.getTitle());
@@ -121,6 +115,7 @@ public class SpronerController {
     @DeleteMapping(value="/song/{id}")
     public ResponseEntity<Song> deleteSong(@PathVariable("id") long id){
         try{
+            System.out.println("Delete just the id:"+id);
             sr.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch(Exception e){
